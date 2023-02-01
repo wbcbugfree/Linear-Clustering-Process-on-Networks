@@ -1,4 +1,4 @@
-function [c,Comm,Q]=Local_Search(A)
+function [c,Comm,Q]=Local_Search_revised(A)
 
 G = graph(A);
 D = degree(G);
@@ -40,35 +40,29 @@ for i = 1:length(uni)
 end
 
 C = setdiff(linspace(1,N,N),diG_u(:,1)); %local leaders
-LL_D = D(C);
-max_LL_D = max(LL_D);
-index_LL_D = [];
-for i = 1:length(LL_D)
-    if LL_D(i)==max_LL_D
-        index_LL_D = [index_LL_D i];
+D_C = D(C);
+[~,index_C] = sort(D_C, 'descend');
+C_des = C(index_C);
+C_new = [];
+if length(C) == 1
+    C_new = C;
+    l(C) = max(l);
+else
+    for i = 1:length(C)%links between local leaders
+        dest_set = setdiff(C_des, C(i), 'stable');
+        Distance = [];
+        for j = 1:length(dest_set)
+            [~, dis] = shortestpath(G,C(i),dest_set(j));
+            Distance = [Distance dis];
+        end
+        [min_Dis,ind_dis] = min(Distance);
+        l(C(i)) = min_Dis;
+        diG_u = [diG_u; [C(i), dest_set(ind_dis)]];
+        C_new = [C_new dest_set(ind_dis)];
     end
 end
-M = C(index_LL_D); %local leaders with max degree
 
-%links towards local leader with larger degree and shortest path
-[~,index_sort] = sort(LL_D);
-C_sort = C(index_sort);
-for i = 1:length(C)-length(M)
-    Distance = [];
-    for j = i+1:length(C)
-        [~,dis] = shortestpath(G,C_sort(i),C_sort(j));
-        Distance = [Distance dis];
-    end
-    Dist_flip = fliplr(Distance);
-    [min_Dis,ind_dis_flip] = min(Dist_flip);
-    l(C_sort(i)) = min_Dis;
-    ind_dis = length(Distance)-ind_dis_flip+1;
-    diG_u = [diG_u; [C_sort(i), C_sort(ind_dis+i)]];
-end
-
-for i = 1:length(M)
-    l(M(i)) = max(l);
-end
+C_new = unique(C_new);
 
 D_star = D;
 D_sorted = sort(D);
@@ -83,23 +77,23 @@ end
 
 l_star = l.^2;
 
-for i = 1:length(C)
-    delta(i) = ((l_star(C(i))-min(l_star))/(max(l_star)-min(l_star)))*((D_star(C(i))-min(D_star))/(max(D_star)-min(D_star)));
+for i = 1:length(C_new)
+    delta(i) = ((l_star(C_new(i))-min(l_star))/(max(l_star)-min(l_star)))*((D_star(C_new(i))-min(D_star))/(max(D_star)-min(D_star)));
 end
 
 %assign community labels
 Comm = [];
 for i = 1:N
-    if ismember(i,C)
+    if ismember(i,C_new)
         Comm(i) = i;
     else
         Comm(i) = diG_u(diG_u(:,1)==i,2);
     end
 end
 
-while(~isequal(sort(unique(Comm)),sort(C)))
+while(~isequal(sort(unique(Comm)),sort(C_new)))
     for i = 1:N
-        if ~ismember(Comm(i),C)
+        if ~ismember(Comm(i),C_new)
             Comm(i) = diG_u(diG_u(:,1)==Comm(i),2);
         end
     end
