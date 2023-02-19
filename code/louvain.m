@@ -7,7 +7,7 @@ uncomm = comm;
 flag = false;
 m = sum(A_ori, 'all')/2;%the sum of the weights of all links in the network
 
-while (flag == false)
+while flag == false
     flag = true;
     for i_c = 1:length(A) %the node that is about to move
         sigma_tot = sum(A);%sum of all edge weights for nodes within the community (including edges which link to other communities)
@@ -16,9 +16,9 @@ while (flag == false)
         k_i = sum(A(:,i_c));%sum of the weights of the edges attached to nodes i 
         k_i_in = A(:,i_c);%the sum of the weights of the links between i and other nodes in the community that i is moving into
         k_i_in(i_c) = 0;
-        diff_mod = k_i_in/m-(sigma_tot.*k_i)/(2*m^2);
+        diff_mod = k_i_in/m-(sigma_tot+k_i).*k_i/(2*m^2);
         [max_value, max_index]= max(diff_mod);
-        if(max_value>0)
+        if max_value>0
             flag = false;
             A(:,max_index) = A(:,max_index) + A(:,i_c);%moving nodes to maximum modularity and combine nodes
             A(max_index,:) = A(max_index,:) + A(i_c,:);
