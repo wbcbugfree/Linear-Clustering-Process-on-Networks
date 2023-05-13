@@ -1,5 +1,4 @@
-function [c,Comm,Q]=Local_Search(A)
-
+function [Comm,c,Q]=Local_Search(A)
 G = graph(A);
 D = degree(G);
 N = size(A,1);
