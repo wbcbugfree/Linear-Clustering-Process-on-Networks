@@ -20,14 +20,14 @@ This repository is for the publication "Linear clustering process on networks: a
 }
 ```
 
-# Cite the thesis:
+### Cite the thesis:
 ```
-@thesis{thesis,
-    title        = {Linear Clustering Process on Networks},
-    author       = {Wang, Beichen},
-    year         = {2023},
-    month        = {08},
-    note         = {Available at \url{http://resolver.tudelft.nl/uuid:41dc9ae8-2055-47d1-bb0a-a870cc076cdc}},
-    school       = {Delft University of Technology},
-    type         = {Master's thesis}
+@thesis{mscthesis,
+    title = {Linear Clustering Process on Networks},
+    author = {Wang, Beichen},
+    year = {2023},
+    month = {08},
+    note = {Available at \url{http://resolver.tudelft.nl/uuid:41dc9ae8-2055-47d1-bb0a-a870cc076cdc}},
+    school = {Delft University of Technology},
+    type = {Master's thesis}
 ```
