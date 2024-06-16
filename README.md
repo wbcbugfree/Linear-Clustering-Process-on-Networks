@@ -1,5 +1,5 @@
 # Linear clustering process on networks: a comparative study
-This repository is for the publication "Linear clustering process on networks: a comparative study" in Journal of Complex Networks by Ivan Jokić, Beichen Wang, Piet Van Mieghem, and MSc thesis "Linear clustering process on networks" by Beichen Wang.
+This repository is for the publication "Linear clustering process on networks: a comparative study" in Journal of Complex Networks by Ivan Jokić, Beichen Wang, and Piet Van Mieghem, and the Master's thesis "Linear Clustering Process on Networks" at Delft University of Technology by Beichen Wang.
 
 ### Cite the paper:
 ```
@@ -18,4 +18,16 @@ This repository is for the publication "Linear clustering process on networks: a
     url = {https://doi.org/10.1093/comnet/cnae022},
     eprint = {https://academic.oup.com/comnet/article-pdf/12/3/cnae022/57945839/cnae022.pdf},
 }
+```
+
+# Cite the thesis:
+```
+@thesis{thesis,
+    title        = {Linear Clustering Process on Networks},
+    author       = {Wang, Beichen},
+    year         = {2023},
+    month        = {08},
+    note         = {Available at \url{http://resolver.tudelft.nl/uuid:41dc9ae8-2055-47d1-bb0a-a870cc076cdc}},
+    school       = {Delft University of Technology},
+    type         = {Master's thesis}
 ```
