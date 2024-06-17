@@ -2,7 +2,7 @@
 This repository is for the publication "Linear clustering process on networks: a comparative study" in Journal of Complex Networks by Ivan Jokić, Beichen Wang, and Piet Van Mieghem, and the Master's thesis "Linear Clustering Process on Networks" at Delft University of Technology by Beichen Wang.
 
 ### Cite the paper:
-```
+```bibtex
 @article{10.1093/comnet/cnae022,
     author = {Jokić, Ivan and Wang, Beichen and Van Mieghem, Piet},
     title = "{Linear clustering process on networks: a comparative study}",
@@ -21,7 +21,7 @@ This repository is for the publication "Linear clustering process on networks: a
 ```
 
 ### Cite the thesis:
-```
+```bibtex
 @thesis{lcpthesis,
     title = {Linear Clustering Process on Networks},
     author = {Wang, Beichen},
