@@ -22,7 +22,7 @@ This repository is for the publication "Linear clustering process on networks: a
 
 ### Cite the thesis:
 ```
-@thesis{mscthesis,
+@thesis{lcpthesis,
     title = {Linear Clustering Process on Networks},
     author = {Wang, Beichen},
     year = {2023},
