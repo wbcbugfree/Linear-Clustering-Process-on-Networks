@@ -16,7 +16,7 @@ This repository is for the publication "Linear clustering process on networks: a
     issn = {2051-1329},
     doi = {10.1093/comnet/cnae022},
     url = {https://doi.org/10.1093/comnet/cnae022},
-    eprint = {https://academic.oup.com/comnet/article-pdf/12/3/cnae022/57945839/cnae022.pdf},
+    eprint = {https://academic.oup.com/comnet/article-pdf/12/3/cnae022/57945839/cnae022.pdf}
 }
 ```
 
@@ -30,4 +30,5 @@ This repository is for the publication "Linear clustering process on networks: a
     note = {Available at \url{http://resolver.tudelft.nl/uuid:41dc9ae8-2055-47d1-bb0a-a870cc076cdc}},
     school = {Delft University of Technology},
     type = {Master's thesis}
+}
 ```
